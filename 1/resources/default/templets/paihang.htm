@@ -1,0 +1,19 @@
+<div class="ititle" id="tags2">
+<div class="selected1" onMouseOver="ShowTag2('tagContent3')">总排行</div>
+<div class="selected3" onMouseOver="ShowTag2('tagContent4')">月排行</div>
+</div>
+<div class="ilist">
+<ul style="display:block" id="tagContent3">
+<!--{eval $int=0}-->
+<!--{loop $zpaihang $k $v}-->
+<!--{eval $int++}-->
+<!--{if $int<4}--><li class="tone"><div><a href="$v[url]" target="_blank"><img src="http://i.le234.com/$v[g_spic]" width="50" height="37" /></a></div><div class="t1"><img src="<!--{MainS}-->/images/n_$int.gif" /><a href="$v[url]" target="_blank" class="f">$v[g_name]</a></div></li><!--{else}--><li>$int. <a href="$v[url]" target="_blank">$v[g_name]</a></li><!--{/if}--><!--{/loop}-->
+</ul>
+<ul style="display:none" id="tagContent4">
+<!--{eval $int=0}-->
+<!--{loop $ypaihang $k $v}-->
+<!--{eval $int++}-->
+<!--{if $int<4}--><li class="tone"><div><a href="$v[url]" target="_blank"><img src="http://i.le234.com/$v[g_spic]" width="50" height="37" /></a></div><div class="t1"><img src="<!--{MainS}-->/images/n_$int.gif" /><a href="$v[url]" target="_blank" class="f">$v[g_name]</a></div></li><!--{else}--><li>$int. <a href="$v[url]" target="_blank">$v[g_name]</a></li><!--{/if}--><!--{/loop}-->
+</ul>
+</div>
+<div class="ibottom"><a href="/0/top.html" target="_blank">更多排行&gt;&gt;</a></div>

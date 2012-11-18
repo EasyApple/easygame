@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><!--{$titletype}-->$zhuanqushow[tag_name]游戏<!--{$titlename}-->_<!--{$titletype}-->$zhuanqushow[tag_name]flash游戏下载_<!--{MainWEBtitle}--> <!--{MainWEBurl}--></title>
+<meta name="keywords" content="$zhuanqushow[tag_name]小游戏,$zhuanqushow[tag_name]flash游戏下载,$zhuanqushow[tag_name]flash游戏大全,双人$zhuanqushow[tag_name]游戏"/>
+<meta name="description" content="$zhuanqushow[tag_content]"/>
+<link href="<!--{MainS}-->/css/public.css" rel="stylesheet" type="text/css" />
+<link href="<!--{MainS}-->/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<script type="text/javascript" src="<!--{MainS}-->/js/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="<!--{MainS}-->/js/common.js"></script>
+</head>
+
+<body>
+{template top}
+{template logo1}
+{template menu}
+
+<div class="w">
+<div class="topsitemap">您现在的位置：：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/t/">小游戏专题</a>&nbsp;>&nbsp;<h1><a class="green" href="/$zhuanqushow[tag_pin]/">$zhuanqushow[tag_name]游戏</a></h1></div>
+</div>
+
+<div class="w">
+<div class="sguesttop"></div>
+<div class="sguestbor">
+<div class="ilisttopic">
+<div class="img"><img src="http://i.le234.com/$zhuanqushow[tag_pic]" alt="$zhuanqushow[tag_name]小游戏图片" /></div>
+<div class="font"><h1>$zhuanqushow[tag_name]小游戏</h1>
+<div>$zhuanqushow[tag_content]</div>
+</div>
+</div>
+</div>
+<div class="sguestbottom"></div>
+</div>
+
+<div class="w pt8">
+<div class="ifleft">
+<div class="ititle"><a href="./index.html" <!--{if $s==''}-->class="selected"<!--{/if}-->>最高人气</a><a href="./f.html" <!--{if $s=='f'}-->class="selected"<!--{/if}-->>最佳评分</a><a href="./n.html" <!--{if $s=='n'}-->class="selected"<!--{/if}-->>最新游戏</a></div>
+<div class="ilistdl">
+<!--{loop $Listdata $k $v}-->
+<dl>
+<dd><a href="$v[url]" target="_blank"><img src="http://i.le234.com/$v[g_spic]" alt="$zhuanqushow[tag_name]小游戏之$v[g_name]图片" /></a></dd>
+<dt><a href="$v[url]" target="_blank" title="$zhuanqushow[tag_name]小游戏之$v[g_name]">$v[g_name]</a></dt>
+<dd><label class="$v[ping]">人气：</label></dd>
+</dl>
+<!--{/loop}-->
+<div class="aPage">$multi</div>
+</div>
+<div class="ibottom"></div>
+</div>
+
+<div class="ifright">
+{template paihang1}
+</div>
+</div>
+
+{template thisgame}
+<div class="w">
+<div class="iftag">
+<div class="ititle"></div>
+<div class="ilist">
+<div class="itag"><b>更多$gametype[tag_name]小游戏</b></div>
+<div class="ilistshow">
+<ul>
+<!--{loop $Listdata1 $k $v}--><a href="$v[url]" target="_blank">$v[g_name]</a><!--{/loop}-->
+</ul>
+</div>
+</div>
+<div class="ibottom"></div>
+</div>
+</div>
+{template bottom}
+<script type="text/javascript">_comm.updatezhuantipost('$zhuanqushow[tag_pin]')</script>
+</body>
+</html>
