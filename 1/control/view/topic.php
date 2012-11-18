@@ -28,10 +28,10 @@ class control extends base {
 		$Tpage = 35;
 		$Qpage = intval($Tpage*($p-1));
 		
-		//分页获取
-		$rurl = $s ? array($s) : array();
-		
 		$topicpin = $topicpin ? $topicpin : 0;
+		
+		//分页获取
+		$rurl = $s ? array('topic',"topicpin={$topicpin}","s={$s}") : array('topic',"topicpin={$topicpin}");
 		
 		//获取专题详情
 		$zhuanqushow = $this->api->game->zhuanqushow($topicpin);

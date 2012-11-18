@@ -18,7 +18,7 @@ class control extends base {
 	function onls(){
 		$rand = $this->api->game->gamerand();
 		$rand = $rand[0];
-		Utility::tsgHref("/{$rand[g_type]}/{$rand[g_id]}.html");
+		Utility::tsgHref("/?m=show&gameid=$rand[g_id]");
 	}
 
 }

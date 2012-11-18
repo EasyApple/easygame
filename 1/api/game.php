@@ -129,22 +129,19 @@ class gamemodel {
 	}
 	
 	function listurl($typeid){
-		return "/{$typeid}/";
+		return "/?m=list&typeid={$typeid}";
 	}
 	function topicurl($tagpin){
-		return "/{$tagpin}/";
+		return "/?m=topic&topicpin={$tagpin}";
 	}
 	function showurlpage($tagpin,$id){
-		return "/{$tagpin}/{$id}.html";
+		return "/?m=show&gameid={$id}";
 	}
 	function showurlpageplay($tagpin,$id){
-		return "/{$tagpin}/{$id}-play.html";
+		return "/?m=play&gameid={$id}";
 	}
 	function showurlpagescreen($tagpin,$id){
-		return "/{$tagpin}/{$id}-screen.html";
-	}
-	function palyurl($tagpin){
-		return "/{$tagpin}/";
+		return "/?m=play-screen&gameid={$id}";
 	}
 	
 }

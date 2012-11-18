@@ -18,7 +18,7 @@
 {template menu}
 
 <div class="w">
-<div class="topsitemap">您现在的位置：：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/t/">小游戏专题</a>&nbsp;>&nbsp;<h1><a class="green" href="/$zhuanqushow[tag_pin]/">$zhuanqushow[tag_name]游戏</a></h1></div>
+<div class="topsitemap">您现在的位置：：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/?m=zhuanti">小游戏专题</a>&nbsp;>&nbsp;<h1><a class="green" href="/?m=topic&topicpin=$zhuanqushow[tag_pin]">$zhuanqushow[tag_name]游戏</a></h1></div>
 </div>
 
 <div class="w">
@@ -36,7 +36,7 @@
 
 <div class="w pt8">
 <div class="ifleft">
-<div class="ititle"><a href="./index.html" <!--{if $s==''}-->class="selected"<!--{/if}-->>最高人气</a><a href="./f.html" <!--{if $s=='f'}-->class="selected"<!--{/if}-->>最佳评分</a><a href="./n.html" <!--{if $s=='n'}-->class="selected"<!--{/if}-->>最新游戏</a></div>
+<div class="ititle"><a href="/?m=topic&topicpin=<!--{$zhuanqushow[tag_pin]}-->" <!--{if $s==''}-->class="selected"<!--{/if}-->>最高人气</a><a href="/?m=topic&topicpin=<!--{$zhuanqushow[tag_pin]}-->&s=f" <!--{if $s=='f'}-->class="selected"<!--{/if}-->>最佳评分</a><a href="/?m=topic&topicpin=<!--{$zhuanqushow[tag_pin]}-->&s=n" <!--{if $s=='n'}-->class="selected"<!--{/if}-->>最新游戏</a></div>
 <div class="ilistdl">
 <!--{loop $Listdata $k $v}-->
 <dl>

@@ -19,7 +19,7 @@
 {template logo1}
 {template menu}
 <div class="w">
-<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/$gameshow[g_type]/">$gameshow[gt_name]</a>&nbsp;>&nbsp;<h1><a class="green" href="$gameshow[url]">$gameshow[g_name]</a></h1></div>
+<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/?m=list&typeid=$gameshow[g_type]">$gameshow[gt_name]</a>&nbsp;>&nbsp;<h1><a class="green" href="$gameshow[url]">$gameshow[g_name]</a></h1></div>
 </div>
 
 <div class="w pt8">
@@ -31,14 +31,14 @@
   <div class="flash_loadblock" id="flash_loadblock">0%</div>
 </div>
 <div class="iswf"><center><div id="flashcontent"><div class="ad"><center><font>正在准备装载游戏， 请稍候...</font>
-请把<a href="javascript:_comm.addToFavorite(location.href,document.title);"><!--{MainWEBtitle}--></a>加到收藏夹， 或者搜索<a href="http://www.baidu.com/s?wd=快乐小游戏" title="快乐小游戏" target="_blank"><!--{MainWEBtitle}--></a>找到我们</label></center><script language="JavaScript" src="<!--{MainS}-->/js/show_ads.js" type="text/javascript"></script></div></div></center></div>
-<div class="buttons"><a href="###" onclick="_comm.quanping('$gameshow[urlscreen]')" id="b_qp">全屏</a><a href="javascript:_comm.addToFavorite(location.href,document.title);" id="b_sc">收藏</a><a href="javascript:_comm.copyToClipBoard()" id="b_send">发给好友</a><a target="_blank" href="javascript:void(0)" onclick="_comm.htmlsave('$gameshow[g_name]')" id="b_down">下载</a><a href="/my/flash.html" target="_blank" id="b_shangc">上传游戏</a></div>
+请把<a href="javascript:_comm.addToFavorite(location.href,document.title);">快乐小游戏</a>加到收藏夹， 或者搜索<a href="http://www.baidu.com/s?wd=<!--{MainWEBtitle}-->" title="<!--{MainWEBtitle}-->" target="_blank">快乐小游戏</a>找到我们</label></center><script language="JavaScript" src="<!--{MainS}-->/js/show_ads.js" type="text/javascript"></script></div></div></center></div>
+<div class="buttons"><a href="###" onclick="_comm.quanping('$gameshow[urlscreen]')" id="b_qp">全屏</a><a href="javascript:_comm.addToFavorite(location.href,document.title);" id="b_sc">收藏</a><a href="javascript:_comm.copyToClipBoard()" id="b_send">发给好友</a><a target="_blank" href="javascript:void(0)" onclick="_comm.htmlsave('$gameshow[g_name]')" id="b_down">下载</a><a href="/?m=about&d=flash" target="_blank" id="b_shangc">上传游戏</a></div>
 </div>
 </div>
 
 <div id="ifrights">
 <div class="ilists">
-<div class="ititles"><b title="$gameshow[g_name]相关人气游戏">相关小游戏</b><a href="/$gameshow[g_type]/">更多</a></div>
+<div class="ititles"><b title="$gameshow[g_name]相关人气游戏">相关小游戏</b><a href="/?m=list&typeid=$gameshow[g_type]">更多</a></div>
 <ul>
 <!--{loop $moregame $k $v}--><li> <a href="$v[url]">$v[g_name1]</a></li><!--{/loop}-->
 </ul><div style="clear:both"></div>

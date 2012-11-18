@@ -17,12 +17,12 @@
 {template menu}
 {template thisgame}
 <div class="w">
-<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/t/">专题小游戏列表</a></h1></div>
+<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/?m=zhuanti">专题小游戏列表</a></h1></div>
 </div>
 <div class="w pt8">
 <div class="liebiao">
 <div class="h c"><h1>专题小游戏列表</h1><div><a href="###" onclick="_comm.htmlsave('$gametype['gt_name']小游戏')" class="buttunhong">网页保存到桌面</a></div></div>
-<ul class="im"><!--{loop $zhuanqu $k $v}--><li><div><a href="/$v[tag_pin]/" target="_blank" title="$v[tag_name]" ><img src="http://i.le234.com/sm/$v[tag_pic]" width="100" height="75" alt="$v[tag_name]"></a></div><a href="/$v[tag_pin]/" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
+<ul class="im"><!--{loop $zhuanqu $k $v}--><li><div><a href="/?m=topic&topicpin=$v[tag_pin]" target="_blank" title="$v[tag_name]" ><img src="http://i.le234.com/sm/$v[tag_pic]" width="100" height="75" alt="$v[tag_name]"></a></div><a href="/?m=topic&topicpin=$v[tag_pin]" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
 </div>
 </div>
 
