@@ -265,7 +265,7 @@ class Utility{
 	//Tcount 总数
 	//Tpage	 每页显示数量
 	//p		 参数
-	static function multi($Tcount, $Tpage, $p, $array, $top='./',$bottom='.html') {
+	static function multi($Tcount, $Tpage, $p, $array, $top='',$bottom='') {
 		
 		$mu = "";
 		//总页数
@@ -310,20 +310,12 @@ class Utility{
 		return $mu;
 	}
 
-	static function Lurl($p,$array,$top='./',$bottom='.html'){
+	static function Lurl($p,$array,$top='',$bottom=''){
 		$p = ($p==0) ? 1 : $p;
-		if($array){
-			if($p && $p==1){
-				return $top.implode('-',$array).$bottom;
-			}else{
-				return $top.implode('-',$array)."-".$p.$bottom;
-			}
+		if($p && $p==1){
+			return '/?m='.implode('&',$array);
 		}else{
-			if($p==1){
-				return "{$top}index{$bottom}";
-			}else{
-				return "{$top}p{$p}{$bottom}";
-			}
+			return '/?m='.implode('&',$array)."&p=".$p;
 		}
 	}
 	

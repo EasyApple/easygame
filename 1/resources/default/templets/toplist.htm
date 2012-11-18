@@ -17,15 +17,15 @@
 {template menu}
 
 <div class="w">
-<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/$gametype['gt_id']/">更多$gametype['gt_name']游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/$gametype['gt_id']/top.html">$gametype['gt_name']小游戏排行</a></h1></div>
+<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/?m=list&typeid=$gametype['gt_id']">更多$gametype['gt_name']游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/?m=top&typeid=$gametype['gt_id']">$gametype['gt_name']小游戏排行</a></h1></div>
 </div>
 <div class="w pt8">
 <div class="zttag">
-<ul class="zz"><!--{loop $zhuanqu $k $v}--><li <!--{if $v[tag_red]==1}-->class="selected"<!--{/if}-->><a href="/$v[tag_pin]/" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
+<ul class="zz"><!--{loop $zhuanqu $k $v}--><li <!--{if $v[tag_red]==1}-->class="selected"<!--{/if}-->><a href="/?m=topic&topicpin=$v[tag_pin]" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
 </div>
 </div>
 <div class="w">
-<div class="toptypelist"><a href="/1/top.html"<!--{if $gametype[gt_id]==1}--> class="red"<!--{/if}-->>动作排行</a> · <a href="/0/top.html"<!--{if $gametype[gt_id]==0}--> class="red"<!--{/if}-->>综合排行</a> · <a href="/10/top.html"<!--{if $gametype[gt_id]==10}--> class="red"<!--{/if}-->>赛车排行</a> · <a href="/6/top.html"<!--{if $gametype[gt_id]==6}--> class="red"<!--{/if}-->>过关排名</a> · <a href="/8/top.html"<!--{if $gametype[gt_id]==8}--> class="red"<!--{/if}-->>冒险排行</a> · <a href="/5/top.html"<!--{if $gametype[gt_id]==5}--> class="red"<!--{/if}-->>益智排行</a> · <a href="/7/top.html"<!--{if $gametype[gt_id]==7}--> class="red"<!--{/if}-->>体育排行</a> · <a href="/9/top.html"<!--{if $gametype[gt_id]==9}--> class="red"<!--{/if}-->>射击排行</a> · <a href="/3/top.html"<!--{if $gametype[gt_id]==3}--> class="red"<!--{/if}-->>搞怪排行</a> · <a href="/12/top.html"<!--{if $gametype[gt_id]==12}--> class="red"<!--{/if}-->>棋牌排行</a> · <a href="/4/top.html"<!--{if $gametype[gt_id]==4}--> class="red"<!--{/if}-->>策略排行</a> · <a href="/2/top.html"<!--{if $gametype[gt_id]==2}--> class="red"<!--{/if}-->>装扮排行</a>· <a href="/11/top.html"<!--{if $gametype[gt_id]==11}--> class="red"<!--{/if}-->>角色排行</a></div>
+<div class="toptypelist"><a href="/?m=top&typeid=1"<!--{if $gametype[gt_id]==1}--> class="red"<!--{/if}-->>动作排行</a> · <a href="/?m=top&typeid=0"<!--{if $gametype[gt_id]==0}--> class="red"<!--{/if}-->>综合排行</a> · <a href="/?m=top&typeid=10"<!--{if $gametype[gt_id]==10}--> class="red"<!--{/if}-->>赛车排行</a> · <a href="/?m=top&typeid=6"<!--{if $gametype[gt_id]==6}--> class="red"<!--{/if}-->>过关排名</a> · <a href="/?m=top&typeid=8"<!--{if $gametype[gt_id]==8}--> class="red"<!--{/if}-->>冒险排行</a> · <a href="/?m=top&typeid=5"<!--{if $gametype[gt_id]==5}--> class="red"<!--{/if}-->>益智排行</a> · <a href="/?m=top&typeid=7"<!--{if $gametype[gt_id]==7}--> class="red"<!--{/if}-->>体育排行</a> · <a href="/?m=top&typeid=9"<!--{if $gametype[gt_id]==9}--> class="red"<!--{/if}-->>射击排行</a> · <a href="/?m=top&typeid=3"<!--{if $gametype[gt_id]==3}--> class="red"<!--{/if}-->>搞怪排行</a> · <a href="/?m=top&typeid=12"<!--{if $gametype[gt_id]==12}--> class="red"<!--{/if}-->>棋牌排行</a> · <a href="/?m=top&typeid=4"<!--{if $gametype[gt_id]==4}--> class="red"<!--{/if}-->>策略排行</a> · <a href="/?m=top&typeid=2"<!--{if $gametype[gt_id]==2}--> class="red"<!--{/if}-->>装扮排行</a>· <a href="/?m=top&typeid=11"<!--{if $gametype[gt_id]==11}--> class="red"<!--{/if}-->>角色排行</a></div>
 </div>
 <div class="w pt8">
 <div class="liebiao">

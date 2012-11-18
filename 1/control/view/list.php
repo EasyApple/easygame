@@ -29,11 +29,11 @@ class control extends base {
 		//每页显示条数
 		$Tpage = 35;
 		$Qpage = intval($Tpage*($p-1));
+
+		$typeid = $typeid ? $typeid : 0;
 		
 		//分页获取
-		$rurl = $s ? array($s) : array();
-		
-		$typeid = $typeid ? $typeid : 0;
+		$rurl = $s ? array('list',"typeid={$typeid}","s={$s}") : array('list',"typeid={$typeid}");
 		//处理参数
 		$where = $typeid ? "and g_type=$typeid" : '';
 		

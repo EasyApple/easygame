@@ -17,16 +17,16 @@
 {template menu}
 {template thisgame}
 <div class="w">
-<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/$gametype[gt_id]/">$gametype[gt_name1]小游戏</a></h1></div>
+<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/?m=list&typeid=$gametype[gt_id]">$gametype[gt_name1]小游戏</a></h1></div>
 </div>
 <div class="w pt8">
 <div class="zttag">
-<ul class="zz"><!--{loop $zhuanqu $k $v}--><li <!--{if $v[tag_red]==1}-->class="selected"<!--{/if}-->><a href="/$v[tag_pin]/" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
+<ul class="zz"><!--{loop $zhuanqu $k $v}--><li <!--{if $v[tag_red]==1}-->class="selected"<!--{/if}-->><a href="/?m=topic&topicpin=$v[tag_pin]" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
 </div><div class="clear"></div>
 </div>
 <div class="w">
 <div class="ifleft">
-<div class="ititle"><a href="./index.html" <!--{if $s==''}-->class="selected"<!--{/if}-->>最高人气</a><a href="./f.html" <!--{if $s=='f'}-->class="selected"<!--{/if}-->>最佳评分</a><a href="./n.html" <!--{if $s=='n'}-->class="selected"<!--{/if}-->>最新游戏</a></div>
+<div class="ititle"><a href="/?m=list&typeid=<!--{$gametype[gt_id]}-->" <!--{if $s==''}-->class="selected"<!--{/if}-->>最高人气</a><a href="/?m=list&typeid=<!--{$gametype[gt_id]}-->&s=f" <!--{if $s=='f'}-->class="selected"<!--{/if}-->>最佳评分</a><a href="/?m=list&typeid=<!--{$gametype[gt_id]}-->&s=n" <!--{if $s=='n'}-->class="selected"<!--{/if}-->>最新游戏</a></div>
 <div class="ilistdl">
 <!--{loop $Listdata $k $v}-->
 <dl>
