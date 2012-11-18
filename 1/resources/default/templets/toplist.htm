@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$gametype['gt_name']小游戏排行_$gametype['gt_name']flash小游戏排行_<!--{MainWEBtitle}--> <!--{MainWEBurl}--></title>
+<meta name="keywords" content="$gametype['gt_name']flash小游戏排行,双人$gametype['gt_name']游戏排行"/>
+<link href="<!--{MainS}-->/css/public.css" rel="stylesheet" type="text/css" />
+<link href="<!--{MainS}-->/css/list.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="/ico/favicon.ico" />
+<script type="text/javascript" src="<!--{MainS}-->/js/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="<!--{MainS}-->/js/common.js"></script>
+</head>
+
+<body>
+{template top}
+{template logo1}
+{template menu}
+
+<div class="w">
+<div class="topsitemap">您现在的位置：<a href="/">快乐小游戏</a>&nbsp;>&nbsp;<a href="/$gametype['gt_id']/">更多$gametype['gt_name']游戏</a>&nbsp;>&nbsp;<h1><a class="green" href="/$gametype['gt_id']/top.html">$gametype['gt_name']小游戏排行</a></h1></div>
+</div>
+<div class="w pt8">
+<div class="zttag">
+<ul class="zz"><!--{loop $zhuanqu $k $v}--><li <!--{if $v[tag_red]==1}-->class="selected"<!--{/if}-->><a href="/$v[tag_pin]/" target="_blank">$v[tag_name]</a></li><!--{/loop}--></ul>
+</div>
+</div>
+<div class="w">
+<div class="toptypelist"><a href="/1/top.html"<!--{if $gametype[gt_id]==1}--> class="red"<!--{/if}-->>动作排行</a> · <a href="/0/top.html"<!--{if $gametype[gt_id]==0}--> class="red"<!--{/if}-->>综合排行</a> · <a href="/10/top.html"<!--{if $gametype[gt_id]==10}--> class="red"<!--{/if}-->>赛车排行</a> · <a href="/6/top.html"<!--{if $gametype[gt_id]==6}--> class="red"<!--{/if}-->>过关排名</a> · <a href="/8/top.html"<!--{if $gametype[gt_id]==8}--> class="red"<!--{/if}-->>冒险排行</a> · <a href="/5/top.html"<!--{if $gametype[gt_id]==5}--> class="red"<!--{/if}-->>益智排行</a> · <a href="/7/top.html"<!--{if $gametype[gt_id]==7}--> class="red"<!--{/if}-->>体育排行</a> · <a href="/9/top.html"<!--{if $gametype[gt_id]==9}--> class="red"<!--{/if}-->>射击排行</a> · <a href="/3/top.html"<!--{if $gametype[gt_id]==3}--> class="red"<!--{/if}-->>搞怪排行</a> · <a href="/12/top.html"<!--{if $gametype[gt_id]==12}--> class="red"<!--{/if}-->>棋牌排行</a> · <a href="/4/top.html"<!--{if $gametype[gt_id]==4}--> class="red"<!--{/if}-->>策略排行</a> · <a href="/2/top.html"<!--{if $gametype[gt_id]==2}--> class="red"<!--{/if}-->>装扮排行</a>· <a href="/11/top.html"<!--{if $gametype[gt_id]==11}--> class="red"<!--{/if}-->>角色排行</a></div>
+</div>
+<div class="w pt8">
+<div class="liebiao">
+<div class="h"><h1>$gametype['gt_name']总点击Top500</h1><div><a href="###" onclick="_comm.htmlsave('$gametype['gt_name']小游戏')" class="buttunhong">网页保存到桌面</a></div></div>
+<ul class="im"><!--{loop $gamelist $k $v}--><li><div><a href="$v[url]" target="_blank" title="$v[g_name1]" ><img src="http://i.le234.com/$v[g_spic]" width="100" height="75" alt="$v[g_name1]"></a></div><a href="$v[url]" target="_blank">$v[g_name]</a></li><!--{/loop}--></ul>
+</div>
+</div>
+
+<div class="w">
+<div class="iftag">
+<div class="ititle"></div>
+<div class="ilist">
+<div class="itag"><b>更多$gametype['gt_name']小游戏</b></div>
+<div class="ilistshow">
+<ul>
+<!--{loop $gamelist1 $k $v}--><a href="$v[url]" target="_blank">$v[g_name]</a><!--{/loop}-->
+</ul>
+</div>
+</div>
+<div class="ibottom"></div>
+</div>
+</div>
+{template bottom}
+<script type="text/javascript" src="<!--{MainS}-->/js/lazyload1.js"></script>
+</body>
+</html>

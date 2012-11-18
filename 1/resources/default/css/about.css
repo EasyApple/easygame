@@ -1,0 +1,7 @@
+.about_l{ float:left; border:1px solid #d1d1d1; background-color:#ededed; margin-top:10px;}
+.about_r{width:793px; float:left;border:1px solid #d1d1d1; margin:10px 0 10px 10px; }
+.about_r h2{ margin:1px; padding:0;  text-align:left; line-height:30px; background-color:#fbfbfb; border-bottom:1px #CCC dashed; font-size:14px; padding-left:25px }
+.about_r h3{ font-size:12px; font-weight:100; text-align:left; padding:25px; line-height:28px; margin:0;}
+.about_list{ float:left; background-color:#FFF; margin:2px 1px; width:149px; padding-bottom:10px; }
+.about_list li{font-size:14px;  width:130px; line-height:30px;  border-bottom:1px #CCC dashed; margin-left:10px;}
+.about_list li a{ color:#0094bc; font-size:13px; font-weight:100;}
