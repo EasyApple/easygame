@@ -103,6 +103,7 @@ function openNode($i,$j){//set nodes to open,if it is can open
 ?>  
 
 <html>  
+<center>
 <head>  
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
 <title>minesweeper</title>  
@@ -167,4 +168,5 @@ function timerun(){//time running
 }  
 </script>  
 </body>  
+</center>
 </html>  
