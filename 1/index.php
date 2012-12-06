@@ -1,170 +1,203 @@
-<?php  
-//是根据Microsoft的挖地雷游戏编写
-//来源 www.linuxidc.com
-$init = $_POST["init"];//game restart  
-$clickvalue = $_POST["clickvalue"];//minesweeping  
-$checkflag = 0;//Victory or defeat  
-$click_count = 0;//clicks count  
-if($init == null && $clickvalue == null){//initialization  
-    $_POST = array();//set POST with a array  
-    $_POST["rows"] = 9;//set rows  
-    $_POST["cols"] = 9;//set cols  
-    $_POST["num"] = 10;//set num  
-    $_POST["timeshow"] = "00:00"; //set starttime  
-    $init = true;//set initialization  
-}  
-$rows = $_POST["rows"];//get rows  
-$cols = $_POST["cols"];//get cols  
-$num = $_POST["num"];//get num  
-$starttime = $_POST["starttime"];//get starttime  
-if($init){// is initialization  
-    $timeshow = "00:00";//set starttime  
-    $data = array();//data initialization  
-    for($i=0;$i<$rows;$i++){//all the rows  
-        for($j=0;$j<$cols;$j++){//all the cols  
-            $data["data".$i."_".$j] = 0;//set mine with null  
-            $data["open".$i."_".$j] = 0;//set node with close  
-        }  
-    }  
-    $i=0;//reset the index,and set the mines(Random setting)  
-    while($i < $num){//number of mine  
-        $r = rand(0,$rows - 1);//row's index  
-        $c = rand(0,$cols - 1);//col's index  
-        if($data["data".$r."_".$c] == 0){//if not a mine  
-            $data["data".$r."_".$c] = 100;//set the node with a mine  
-            $i++;  
-        }  
-    }  
-    for($i=0;$i<$rows;$i++){//all the rows  
-        for($j=0;$j<$cols;$j++){//all the cols  
-            if($data["data".$i."_".$j] == 100)continue;//is not a mine , set number of adjacent mines   
-            $cnt = 0;  
-            if($i - 1 >= 0 && $j - 1 >= 0 && $data["data".($i - 1)."_".($j - 1)] == 100)$cnt++;//upper left  
-            if($i - 1 >= 0 && $data["data".($i - 1)."_".$j] == 100)$cnt++;//left  
-            if($i - 1 >= 0 && $j + 1 < $cols && $data["data".($i - 1)."_".($j + 1)] == 100)$cnt++;//lower left  
-            if($j - 1 >= 0 && $data["data".$i."_".($j - 1)] == 100)$cnt++;//upper  
-            if($j + 1 < $cols && $data["data".$i."_".($j + 1)] == 100)$cnt++;//lower  
-            if($i + 1 < $rows && $j - 1 >= 0 && $data["data".($i + 1)."_".($j - 1)] == 100)$cnt++;//upper right  
-            if($i + 1 < $rows && $data["data".($i + 1)."_".$j] == 100)$cnt++;//right  
-            if($i + 1 < $rows && $j + 1 < $cols && $data["data".($i + 1)."_".($j + 1)] == 100)$cnt++;//lower right  
-            $data["data".$i."_".$j] = $cnt;//set number  
-        }  
-    }  
-}else{  
-    $data = $_POST;//get data  
-    if($data["data".$clickvalue] == 100){//check the value of users click  
-        $checkflag = 2;//if click on a mine,gameover  
-        for($i=0;$i<$rows;$i++){//all the rows  
-            for($j=0;$j<$cols;$j++){//all the cols  
-                $data["open".$i."_".$j] = 1;//set all nodes to open  
-            }  
-        }  
-    }else{  
-        $node = explode("_", $clickvalue);//get the node of click  
-        openNode($node[0],$node[1]);//set nodes to open  
-        for($i=0;$i<$rows;$i++){//all the rows  
-            for($j=0;$j<$cols;$j++){//all the cols   
-                if($data["open".$i."_".$j] == 1)$click_count++;//get the number of opennode   
-            }  
-        }  
-        if($rows*$cols - $click_count == $num)$checkflag = 1;//if all the node is open,game clear   
-    }  
-}  
-if($checkflag == 0 && $click_count == 1){//if game is start ,time start  
-    $starttime = date("H:i:s");  
-}  
-if($starttime){//Computing time and display  
-    $now = date("H:i:s");  
-    $nowlist = explode(":",$now);  
-    $starttimelist = explode(":",$starttime);  
-    $time_count = $nowlist[0]*3600+$nowlist[1]*60 + $nowlist[2] - ($starttimelist[0]*3600+$starttimelist[1]*60 + $starttimelist[2]);  
-    $min = floor($time_count / 60);  
-    $sec = $time_count % 60;  
-    $timeshow = ($min>9?$min:"0".$min).":".($sec>9?$sec:"0".$sec);  
-}else{  
-    $timeshow = "00:00";//if game is stop , time stop  
-}  
-function openNode($i,$j){//set nodes to open,if it is can open  
-    global $rows;//get the rows  
-    global $cols;//get the cols  
-    global $data;//get the data  
-    if($i < 0 || $i >= $rows || $j < 0 || $j >= $cols || $data["open".$i."_".$j])return;//it is not a node,or it has been opened  
-    $data["open".$i."_".$j] = 1;//open the node  
-    if($data["data".$i."_".$j] > 0)return;//need to continue?  
-    openNode($i - 1,$j - 1);  
-    openNode($i - 1,$j);  
-    openNode($i - 1,$j + 1);  
-    openNode($i,$j - 1);  
-    openNode($i,$j + 1);  
-    openNode($i + 1,$j - 1);  
-    openNode($i + 1,$j);  
-    openNode($i + 1,$j + 1);  
-}  
-?>  
+<?
+// PHPMINE v1.0
+//来源http://www.phpvault.com
+//是根据microsoft的挖地雷游戏编写
+print "<html>";
+print "<head>";
+print "<title>PHP挖地雷</title>";
+print "</head>";
+print "<body bgcolor=#3F1FF1><center>";//更改颜色
+print "<font size=3 face=Verdana><b>PHP挖地雷</b>";
+if ($submit=="")//默认设置
+{
+   $NumMine=1; //地雷数
+   $RowSize=2;
+   $ColSize=2;
+   $generer=1;
+}
+if($generer==1)//还没生成地图 ，else 到line 56
+{
+   //srand((double)microtime()*100000000); //生成随机数种子
+   srand(time());//我写成这样
+   $time_start=time();
+   //判断输入的数值是否正确
+   if(($RowSize<=1) || ($ColSize<=1) || ($NumMine==0))
+   {
+    print "<p><br><font size=-1 color=red>行数，列数或地雷数输入错误!!</font>";
+    exit;
+   }
+   if($NumMine > $RowSize*$ColSize)
+   {
+    print "<p><br><font size=-1 color=red>地雷数太多!</font>";
+    exit;
+   }
+   //初始化
+   for($Row=1;$Row<=$RowSize;$Row++)
+   {
+    for($Col=1;$Col<=$ColSize;$Col++)
+    {
+     $Mine[$Row][$Col]="0";
+     $Decouv[$Row][$Col]="0";
+    }
+   }//二维数组存地图，表示有没有地雷！
+   $index=0;
+   while($index<$NumMine)//随机产生地雷，注意有个数限制
+   {
+   //int rand ( [int $min, int $max] ) 从一个区间产生随机数
+    $Row=rand(1,$RowSize);
+    $Col=rand(1,$ColSize);
+    if($Mine[$Row][$Col]=="0")
+    {
+     $Mine[$Row][$Col]="1";//0 无雷
+     $index++;              //1 有雷
+    }
+   }
+}
+else
+{
+   $perdu=0;//
+   $reste=$RowSize*$ColSize;
+   for($Row=1;$Row<=$RowSize;$Row++)
+   {
+    for($Col=1;$Col<=$ColSize;$Col++)
+    {
+     $temp="Mine".($Row*($ColSize+1)+$Col);
+     //echo $temp;
+     $Mine[$Row][$Col]=$$temp;//变量传递，（可变变量）
+     $temp="Decouv".($Row*($ColSize+1)+$Col);//每次点一个按钮就把值回传数组
+               //int a[3][2];
+               //a[1][1]=a+1*(2+1)+1
+     $Decouv[$Row][$Col]=$$temp;
+     if($Decouv[$Row][$Col]=="1") {$reste=$reste-1;}//reste 表示还剩多少个格子没动过
+     $temp="submit".($Row*($ColSize+1)+$Col);
+     if($$temp=="ok")
+     {
+      $reste=$reste-1;
+      if($Mine[$Row][$Col]=="0")//有幸没有踩中地雷
+      {
+       $Decouv[$Row][$Col]="1";//已经探测过了，标记一下
+      }
+      else
+      {
+       $perdu=1;
+      }
+     }
+    }
+   }
+   if($perdu==1)//中奖了，踩住地雷了
+   {
+    if ($myname=='leeinn') {
+     print "<h2><font color=red> 不要灰心呀！</f></h2>" ;
+    }
+    else{
+     print "<h2><font color=red> 您输啦!</f></h2>";
+        }
+    for($i=1;$i<=$RowSize;$i++)
+    {
+     for($j=1;$j<=$ColSize;$j++)
+     {
+      $Decouv[$i][$j]="1";
+     }
+    }
+   }
+   if(($reste==$NumMine)&&($perdu!=1))
+   {
+    print "<h2>你赢啦!</h2>";
+    $time_stop=time();
+    $time=$time_stop-$time_start;
+    if ($myname=='leeinn') {
+     $time=100;
+    }
+    print "<p><font size=-1><i>您的分数: $time</i></font>";//用时间计算分数
+    for ($i=1;$i<=$RowSize;$i++)
+    {
+     for($j=1;$j<=$ColSize;$j++)
+     {
+      $Decouv[$i][$j]="1";
+     }
+    }
+   }
+}
+print "<form method=get action='$PHP_SELF'>";//从网页得到数据，在按完“开始”的按钮后，接受来自自己的数据，
+print "<input type=hidden name=time_start value=$time_start>";
+print "<input type=hidden name=NumMine value=$NumMine>";
+print "<input type=hidden name=RowSize value=$RowSize>";
+print "<input type=hidden name=ColSize value=$ColSize>";
+print "<input type=hidden name=generer value=0>";
+print "<input type=hidden name=myname value=$myname>";//这里加一项
+print "<p><table border=1 cellpadding=8>";//做表格
+for($Row=1; $Row<=$RowSize; $Row++)
+{
+   print "<tr>";
+   for($Col=1; $Col<=$ColSize; $Col++)
+   {
+    $nb=0;
+    for($i=-1; $i<=1; $i++)
+    {
+     for($j=-1; $j<=1; $j++)
+     {
+      if($Mine[$Row+$i][$Col+$j] == "1")//上下左右，4个对角，如果有雷就让$nb++，
+      {
+       $nb++;
+      }
+     }
+    }
+    print "<td width=15 height=15 align=center valign=middle>";
+    if($Decouv[$Row][$Col]=="1")
+    {
+     if($nb==0)//如果8个方向没有雷，就输出空格
+     {
+      print "&nbsp;";
+     }
+     else
+     {
+      if($Mine[$Row][$Col]=="1")
+      {
+       print "<font color=red>*</font>";//地雷就输出‘*’
+      }
+      else //自己不是雷，就输出周围的地雷数
+      {
+       print "$nb";
+      }
+     }
+    }
+    else
+    {
+     print "<input type=hidden name=submit value=ok>";
+     print "<input type=submit name=submit".($Row*($ColSize+1)+$Col)." value=ok>";//在这里显示界面上的ok框
+    }
+    print "<input type=hidden name=Mine".($Row*($ColSize+1)+$Col)." value=".$Mine[$Row][$Col].">";
+    print "<input type=hidden name=Decouv".($Row*($ColSize+1)+$Col)." value=".$Decouv[$Row][$Col].">";
+    print "</td>";//见line:68
+   }
+   print "</tr>";
+}
+print "</table>";
+print "</form>";
+if ($myname=="leeinn") {
+   print "I love you ,$myname";
+}
+else {
+print "welcome to this game ,$myname" ;
+}
 
-<html>  
-<head>  
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
-<title>minesweeper</title>  
-</head>  
-<body>  
-<form action="" method="post">  
-<input type="hidden" name="starttime" value="<?php echo $starttime;?>">  
-<input type="hidden" name="clickvalue">  
-<table style="position:absolute;top:10px;left:0px;z-index:0;" border="1px">  
-<tr>  
-<td width="100px" align="center">  
-    <table width="100%" border="1px">  
-        <tr><td>rows:</td><td><input type="text" name="rows" value="<?php echo $rows;?>" size="1"></td></tr>  
-        <tr><td>cols</td><td><input type="text" name="cols" value="<?php echo $cols;?>" size="1"></td></tr>  
-        <tr><td>num:</td><td><input type="text" name="num" value="<?php echo $num;?>" size="1"></td></tr>  
-        <tr><td colspan="2" align="center"><input type="submit" value="restart" name="init"></td></tr>  
-    </table>  
-</td>  
-<td width="50px" align="center"><font size="10px"><?php echo $checkflag < 2?"☺":"☹";?></font></td>  
-<td width="100px" align="center">  
-<?php   
-    if($checkflag == 1)echo "game clear!<br />";  
-    else if($checkflag == 2)echo "game over!<br />";  
-?>  
-    <input type="text" name="timeshow" value="<?php echo $timeshow;?>" size="4" readonly >  
-</td>  
-</tr>  
-</table>  
-<table style="position:absolute;top:155px;left:0px;z-index:0;" border="1px">  
-<?php for($i=0;$i<$rows;$i++){ ?>  
-    <tr>  
-    <?php for($j=0;$j<$cols;$j++){    ?>  
-        <td style="width:24px;height:24px;" align="center">  
-        <input type="hidden" name="open<?php echo $i."_".$j;?>" value="<?php echo $data["open".$i."_".$j];?>">  
-        <input type="hidden" name="data<?php echo $i."_".$j;?>" value="<?php echo $data["data".$i."_".$j];?>">  
-        <?php if($data["open".$i."_".$j]){//show the value of node,if the node has been opened ?>  
-            <?php echo $data["data".$i."_".$j]==100?"☀":$data["data".$i."_".$j];?>  
-        <?php }else{//show a button ,if the node has not been opened ?>  
-            <input type="button" value="" onclick="clickNum('<?php echo $i."_".$j;?>')"  style="width:20px;height:20px;">  
-        <?php } ?>  
-        </td>  
-    <?php } ?>  
-    </tr>  
-<?php } ?>  
-</table>  
-</form>  
-<script type="text/javascript">  
-function clickNum(value){//click a node  
-    <?php if($checkflag > 0)echo 'return;';//if game is clear or game is over ?>  
-    document.forms[0].clickvalue.value = value;  
-    document.forms[0].submit();  
-}  
-<?php if($checkflag == 0 && $click_count>0)echo 'setTimeout("timerun()",1000);';//time running ?>  
-<?php if($checkflag == 1)echo 'alert("game clear!");';?>  
-<?php if($checkflag == 2)echo 'alert("game over!");';?>  
-function timerun(){//time running  
-    var timelist = document.forms[0].timeshow.value.split(":");  
-    var sec = parseInt(timelist[1],10) + 1;  
-    var min = sec < 60?parseInt(timelist[0],10):(parseInt(timelist[0],10) + 1);  
-    document.forms[0].timeshow.value = (min>9?min:"0"+min)+":"+(sec > 9?sec:"0"+sec);  
-    setTimeout("timerun()",1000);  
-}  
-</script>  
-</body>  
-</html>  
+?>
+<hr>
+<form method=post><!//向网页发送信息的方式>
+行数 : &nbsp;<!//生成3 个输入框>
+<input type=text name=RowSize value=2 size=2>
+<br>
+列数 : &nbsp;<!是个空格>
+<input type=text name=ColSize value=2 size=2>
+<br>
+地雷数 : &nbsp;
+<input type=text name=NumMine value=1 size=2>
+<br>
+姓名 : &nbsp;
+<input type=text name=myname value="yjy" size=2>
+<p>
+<input type=submit name=submit value=开始>
+<input type=hidden name=generer value=1> <! //判断是否生成地图 line :18   ,隐藏属性，不可见>
+</form>
+</body>
+</html>
