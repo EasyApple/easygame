@@ -1,3 +1,0 @@
-// JavaScript Document
-function ShowTag2(strTargetId){var tag = document.getElementById("tags2").getElementsByTagName("div");for(i=3; i<5; i++){if(strTargetId=='tagContent'+i){if(i==3){tag[i-3].className = "selected1";}else{tag[i-3].className = "selected2";}document.getElementById('tagContent'+i).style.display = "block";}else{if(i==3){tag[i-3].className = "selected0";}else{tag[i-3].className = "selected3";}document.getElementById('tagContent'+i).style.display = "none";}}}
-function tab(a,b,c) {for(i=0;i<=b;i++){if(c==i){document.getElementById(a+"_mo_"+i).style.display = "block";document.getElementById(a+"_to_"+i).className = "selected";}else{document.getElementById(a+"_mo_"+i).style.display = "none";document.getElementById(a+"_to_"+i).className = "";}}}
