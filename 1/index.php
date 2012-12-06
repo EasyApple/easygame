@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?
 // PHPMINE v1.0
 //来源http://www.phpvault.com
