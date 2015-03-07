@@ -125,7 +125,8 @@ $(
 
 		function start(deg)
 		{
-			deg=deg||prizeDeg[parseInt(prizeDeg.length*Math.random())];
+			deg=deg||lostDeg[parseInt(lostDeg.length*Math.random())];
+			deg=6;
 			running=true;
 			clearInterval(timer);
 			totalDeg=360*5+deg;
