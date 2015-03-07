@@ -139,7 +139,34 @@ $(
 							return;
 						}
 
-						$.ajax({url:"index.php",dataType:"json",data:{token:"o7MB9ji5fQRsE0ZoVAMU7SlnRyMI",ac:"activityuser",tid:"5",t:Math.random()},beforeSend:function(){running=true;timer=setInterval(function(){i+=5;outter.style.webkitTransform='rotate('+i+'deg)';outter.style.MozTransform='rotate('+i+'deg)'},1)},success:function(data){if(data.error=="invalid"){alert("您已经抽了 3 次奖。");count=3;clearInterval(timer);return}if(data.error=="getsn"){alert('本次活动你已经中过奖，本次只显示你上次抽奖结果!');count=3;clearInterval(timer);prize=data.prizetype;sncode=data.sn;start(prizeDeg[data.prizetype-1]);return}if(data.success){prize=data.prizetype;sncode=data.sn;start(prizeDeg[data.prizetype-1])}else{prize=null;start()}running=false;count++},error:function(){prize=null;start();running=false;count++},timeout:4000})})});$("#save-btn").bind("click",function(){var btn=$(this);
+						$.ajax({url:"index.php",dataType:"json",data:{token:"o7MB9ji5fQRsE0ZoVAMU7SlnRyMI",ac:"activityuser",tid:"5",t:Math.random()},beforeSend:function(){running=true;timer=setInterval(function(){i+=5;outter.style.webkitTransform='rotate('+i+'deg)';outter.style.MozTransform='rotate('+i+'deg)'},1)},success:function(data){if(data.error=="invalid"){alert("您已经抽了 3 次奖。");count=3;clearInterval(timer);return}
+
+							if(data.error=="getsn")
+							{
+								alert('本次活动你已经中过奖，本次只显示你上次抽奖结果!');
+								count=3;
+								clearInterval(timer);
+								prize=data.prizetype;
+								sncode=data.sn;
+								start(prizeDeg[data.prizetype-1]);
+								return;
+							}
+
+							if(data.success)
+							{
+								prize=data.prizetype;
+								sncode=data.sn;
+								start(prizeDeg[data.prizetype-1]);
+							}
+							else
+							{
+								prize=null;
+								start();
+							}
+
+							running=false;
+							count++;
+						},error:function(){prize=null;start();running=false;count++},timeout:4000})})});$("#save-btn").bind("click",function(){var btn=$(this);
 	}
 )
 </script>
