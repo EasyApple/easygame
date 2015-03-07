@@ -25,8 +25,8 @@
 
     <div id="tools">
     <center>
-		<a href="sweeping.html">扫雷游戏</a>
-		<a href="rolling.html">掷骰子游戏</a>
+		<a href="sweeping.php">扫雷游戏</a>
+		<a href="rolling.php">掷骰子游戏</a>
     </center>
     </div>
 </form>
