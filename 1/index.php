@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <form action="index.php" method="search">
     <div id="title">
-        <title>EasyTools</title>
+        <title>EasyGame</title>
         <br><center><lable><font type="黑体" size="16" color="blue">EasyTools</font></lable></center></br>
     </div>
 	<div>
@@ -26,7 +26,7 @@
     <div id="tools">
     <center>
 		<a href="sweeper.php">扫雷游戏</a>
-		<a href="drawer.html">抽奖游戏</a>
+		<a href="drawer.htm">抽奖游戏</a>
     </center>
     </div>
 </form>
