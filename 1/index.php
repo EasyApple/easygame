@@ -26,7 +26,7 @@
     <div id="tools">
     <center>
 		<a href="sweeper.php">扫雷游戏</a>
-		<a href="drawer.php">抽奖游戏</a>
+		<a href="drawer.htm">抽奖游戏</a>
     </center>
     </div>
 </form>
