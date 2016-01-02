@@ -1,10 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<form action="index.php" method="search">
-    <div id="title">
-        <title>EasyGames</title>
-        <br><center><lable><font type="黑体" size="16" color="blue">EasyGames</font></lable></center></br>
-    </div>
 	<div>
+        <br><br>
 		<center>
 		<script type="text/javascript"><!--
 		google_ad_client = "ca-pub-3914685173905728";
@@ -18,13 +14,18 @@
 		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		</script>
 		</center>
+        <br><br>
 	</div>
-	<div>
-		<br></br>
-	</div>
+<form action="index.php" method="search">
+    <div id="title">
+        <title>EasyGames</title>
+        <br><center><lable><font type="黑体" size="16" color="blue">EasyGames</font></lable></center>
+    </div>
+
 
     <div id="games">
     <center>
+        <br>
 		<a href="sweeper.php">扫雷游戏</a>
 		<a href="drawer.htm">抽奖游戏</a>
     </center>
